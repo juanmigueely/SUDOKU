@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100vh;
+    color: rgb(0, 255, 42);
+}
+h1{
+    font-weight: 500;
+    font-size: 60px;
+    text-shadow: 2px 3px 4px rgba(52, 236, 46, 0.836);
+}
+.contenedor{
+    background-color: white;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(52, 236, 46, 0.836);
+}
+.celda{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 0.1px solid rgba(52, 236, 46, 0.904);
+    transition: all 0.3s ease-in-out;
+}
+table{
+    border-collapse: collapse;
+    border: 3px solid rgba(52, 236, 46, 0.904);
+}

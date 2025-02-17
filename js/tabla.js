@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
             input.className = "celda";
             input.id =  `celdas-${fila}-${col}`;  
 
-            
+            input.addEventListener('input', function(event){
+                validarEntrada(event, fila, col);
+            });
             
             celdas.appendChild(input);
             nuevaFila.appendChild(celdas);
@@ -32,3 +34,5 @@ document.addEventListener('DOMContentLoaded', function () {
         bodyTabla.appendChild(nuevaFila);
     };
 });
+//rgba(52, 236, 46, 0.836)
+//rgba(52, 236, 46, 0.904)

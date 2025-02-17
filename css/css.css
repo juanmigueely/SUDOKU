@@ -13,31 +13,31 @@ body{
     flex-direction: column;
     overflow: hidden;
     min-height: 100vh;
-    color: rgb(0, 255, 42);
+    color: rgb(70, 0, 128);
 }
 h1{
     font-weight: 500;
     font-size: 60px;
-    text-shadow: 2px 3px 4px rgba(52, 236, 46, 0.836);
+    text-shadow: 2px 3px 4px rgb(110, 21, 184);
 }
 .contenedor{
     background-color: white;
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    box-shadow: 0px 0px 10px rgba(52, 236, 46, 0.836);
+    box-shadow: 0px 0px 10px rgb(70, 0, 128);   
 }
 .celda{
     width: 45px;
     height: 45px;
     text-align: center;
     font-size: 25px;
-    border: 0.1px solid rgba(52, 236, 46, 0.904);
+    border: 0.1px solid rgb(70, 0, 128);
     transition: all 0.3s ease-in-out;
 }
 table{
     border-collapse: collapse;
-    border: 3px solid rgba(52, 236, 46, 0.904);
+    border: 3px solid rgb(70, 0, 128);
 }
 table tr:nth-child(3n) td,
 table tr:nth-child(3n+3) td{
@@ -60,7 +60,7 @@ button{
     font-size: 16px;
     border: none;
     cursor: pointer;
-    box-shadow: 0px 0px 10px rgba(52, 236, 46, 0.836);
+    box-shadow: 0px 0px 10px rgb(70, 0, 128);
     border-radius: 10px;
     transition: all 0.3s ease;
     color: white;
@@ -70,13 +70,13 @@ button:hover{
     font-size: 18px;
 }
 #btnResolver{
-    background-color: rgba(52, 236, 46, 0.753);
+    background-color: rgb(70, 0, 128);
 }
 #btnReiniciar{
-    background-color: rgba(52, 236, 46, 0.473);
+    background-color: rgb(70, 0, 128);
 }
 #btnResolver:hover, #btnReiniciar:hover {
-    box-shadow: 0px 0px 30px rgba(52, 236, 46, 0.836);
+    box-shadow: 0px 0px 30px rgb(70, 0, 128);
 }
 
 @media (max-width : 430px ) {
@@ -91,5 +91,5 @@ button:hover{
 .efecto{
     background-color:  rgba(128, 128, 128, 0.562);
     transition: all 0.2s ease-in-out;
-    float: left;
+    float: left;    
 }

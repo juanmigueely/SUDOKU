@@ -85,3 +85,11 @@ button:hover{
         height: 35px;
     }
 }
+.entradaUsu{
+    background-color: gray ;
+}
+.efecto{
+    background-color:  rgba(128, 128, 128, 0.562);
+    transition: all 0.2s ease-in-out;
+    float: left;
+}

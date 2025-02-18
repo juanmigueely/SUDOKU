@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const input = document.createElement('input');
             input.type = "number";
             input.className = "celda";
+            //asignamos los ids a cada celda de la tabla
+            //basado en su fila y su celda
             input.id =  `celdas-${fila}-${col}`;  
 
             input.addEventListener('input', function(event){
@@ -34,5 +36,3 @@ document.addEventListener('DOMContentLoaded', function () {
         bodyTabla.appendChild(nuevaFila);
     };
 });
-//rgba(52, 236, 46, 0.836)
-//rgba(52, 236, 46, 0.904)

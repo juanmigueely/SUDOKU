@@ -26,9 +26,8 @@ async function resolverJuego() {
         };
     };
 
-    //solución
-
-    if (sudoku(listaSoduku)) {
+    //resolver sudoku y mostrar la solucion en las celdas del tablero
+    if (sudoku(listaSoduku)) { //verifica si el sudoku tiene solución
         for (let fila = 0; fila < medidaCuadricula; fila++) {
             for (let col = 0; col < medidaCuadricula; col++) {
                 const idCelda = `celdas-${fila}-${col}`;
@@ -37,7 +36,7 @@ async function resolverJuego() {
                 if (!celda.classList.contains("entradaUsu")) {
                     celda.value = listaSoduku[fila][col];
                     celda.classList.add("efecto");
-                    await efectoRetraso(20);
+                    await efectoRetraso(30);
                 };
             }
         };
@@ -111,6 +110,7 @@ function reiniciarJuego() {
 
 
 function validarEntrada(event, fila, col) {
+    
     const idCelda = `celdas-${fila}-${col}`
     const celdas = document.getElementById(idCelda);
     const valor = celdas.value;
@@ -159,7 +159,7 @@ function validarEntrada(event, fila, col) {
     };
 
     const subcuadriculaFila = Math.floor( fila / 3 ) *3;
-    const subcuadriculaCol = Math.floor( fila / 3 ) *3;
+    const subcuadriculaCol = Math.floor( col / 3 ) *3;
 
     for ( let i = subcuadriculaFila; i < subcuadriculaFila + 3; i ++ ) {
         for ( let j = subcuadriculaCol; j < subcuadriculaCol + 3; j ++ ) {

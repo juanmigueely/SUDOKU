@@ -1,6 +1,8 @@
 const medidaCuadricula = 9;
 const listaSoduku = [];
 
+//permite ejecutar código de manera no bloqueante
+//lo que hace que el programa siga funcionando mientras espera tareas largas
 async function resolverJuego() {
     //llenamos los tableros con valores 
     for (let fila = 0; fila < medidaCuadricula; fila++) {
@@ -9,7 +11,6 @@ async function resolverJuego() {
             const idCelda = `celdas-${fila}-${col}`;
             const valorCelda = document.getElementById(idCelda).value;
             listaSoduku[fila][col] = valorCelda !== "" ? parseInt(valorCelda) : 0;
-
         };
     };
 
@@ -34,6 +35,7 @@ async function resolverJuego() {
                 const celda = document.getElementById(idCelda);
 
                 if (!celda.classList.contains("entradaUsu")) {
+                    //asignamos el valor a la celda para mostrar la solución
                     celda.value = listaSoduku[fila][col];
                     celda.classList.add("efecto");
                     await efectoRetraso(30);
@@ -41,7 +43,7 @@ async function resolverJuego() {
             }
         };
     } else {
-        alert("no hay solución juego")
+        alert("no hay solución para el juego")
     }
 
 };
@@ -49,25 +51,36 @@ async function resolverJuego() {
 function sudoku(tablero) {
     for (let fila = 0; fila < medidaCuadricula; fila++) {
         for (let col = 0; col < medidaCuadricula; col++) {
+            //se verifica si la celda esta vacia
             if (tablero[fila][col] === 0) {
+                // se intenta colocar un numero entre el 1 - 9
                 for (let num = 1; num <= 9; num++) {
                     if (evitarConflictos(tablero, fila, col, num)) {
+                        //coloca el numero en la celda
                         tablero[fila][col] = num;
 
+                        //recursividad
                         if (sudoku(tablero)) {
                             return true;
                         };
 
+                        //si no se encuentra una solución, la celda
+                        //actual se deshace ( 0 )
                         tablero[fila][col] = 0;
                     };
                 };
+                //si no hay solución retorna falso,
+                //retrocede para buscar mas combinaciones
                 return false;
             };
         }
     };
+    //si no se encuentra ninguna celda vacia, significa 
+    //que ha sido completado con exito
     return true;
 };
 
+//evitar violar las reglas del sudoku
 function evitarConflictos(tablero, fila, col, num) {
     //verificamos la fila y la columna
     for (let i = 0; i < medidaCuadricula; i++) {
@@ -88,13 +101,15 @@ function evitarConflictos(tablero, fila, col, num) {
             };
         };
     };
+    //se puede colocar num
     return true;
 };
 
-//función para efecto al llenar el tablero
+//retornar promesa para añadir efecto de llenado
 function efectoRetraso(ms) {
     return new Promise(sudoku => setTimeout(sudoku, ms));
 };
+//setTimeout, función que se ejecuta despues del tiempo
 
 function reiniciarJuego() {
     for (let fila = 0; fila < medidaCuadricula; fila++) {
@@ -125,7 +140,6 @@ function validarEntrada(event, fila, col) {
             padding: "2em" 
         });
         celdas.value = "";
-        return;
     };
 
     const numeroIngresado = parseInt(valor);
@@ -140,7 +154,6 @@ function validarEntrada(event, fila, col) {
                 padding: "3em" 
             });
             celdas.value = "";
-            return;
         };
     };
 
@@ -154,7 +167,6 @@ function validarEntrada(event, fila, col) {
                 padding: "3em" 
             });
             celdas.value = "";
-            return;
         };
     };
 
@@ -172,11 +184,9 @@ function validarEntrada(event, fila, col) {
                     padding: "3em" 
                 });
                 celdas.value = "";
-                return;
             };
         };  
     };
-
 };
 
 
